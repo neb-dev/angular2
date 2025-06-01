@@ -1,0 +1,16 @@
+import { Component, output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-user-input',
+  imports: [FormsModule],
+  templateUrl: './user-input.component.html',
+  styleUrl: './user-input.component.css',
+})
+export class UserInputComponent {
+  amount = '';
+  userInput = output<string>();
+  submitUserInput() {
+    this.userInput.emit(this.amount);
+  }
+}
