@@ -8,8 +8,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './user-input.component.css',
 })
 export class UserInputComponent {
-  amount = '';
-  userInput = output<string>();
+  amount = 0;
+  userInput = output<number>();
   submitUserInput() {
     this.userInput.emit(this.amount);
   }

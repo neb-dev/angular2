@@ -1,5 +1,6 @@
 <main>
   <app-header />
-  <app-user-input (userInput)="handleUserInput($event)" />
+  <app-user-input (userInput)="addInvestment($event)" />
+  <app-investment-results [investments]="investments" />
 </main>
 <router-outlet />

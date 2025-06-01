@@ -1,1 +1,12 @@
-<p>investment-results works!</p>
+<table>
+  <thead>
+    Investment
+  </thead>
+  <tbody>
+    @for (investment of investments(); track investment) {
+    <tr>
+      <td>{{ investment }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
