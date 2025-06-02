@@ -6,8 +6,8 @@ import { InvestmentResultsComponent } from './investment-results/investment-resu
 import {
   calculateInvestmentResults,
   InvestmentResults,
-  UserInput,
 } from '../investment-results';
+import { UserInput } from './user-input/user-input.types';
 
 @Component({
   selector: 'app-root',

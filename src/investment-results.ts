@@ -1,22 +1,5 @@
-// Use the below code as a help
-// e.g., integrate it into a service or component
-// You may need to tweak it, depending on where and how you use it
-
-export interface UserInput {
-  initialInvestment: number;
-  annualInvestment: number;
-  expectedReturn: number;
-  duration: number;
-}
-
-export interface AnnualData {
-  year: number;
-  interest: number;
-  valueEndOfYear: number;
-  annualInvestment: number;
-  totalInterest: number;
-  totalAmountInvested: number;
-}
+import { AnnualData } from './app/investment-results/investment-results.types';
+import { UserInput } from './app/user-input/user-input.types';
 
 export type InvestmentResults = AnnualData[];
 
