@@ -12,12 +12,20 @@ export class UserInputComponent {
   userInputData: UserInput = {
     initialInvestment: 0,
     annualInvestment: 0,
-    expectedReturn: 0,
-    duration: 0,
+    expectedReturn: 5,
+    duration: 10,
   };
   userInput = output<UserInput>();
 
   handleSubmit() {
     this.userInput.emit(this.userInputData);
+    this.resetForm();
+  }
+
+  resetForm() {
+    this.userInputData.initialInvestment = 0;
+    this.userInputData.annualInvestment = 0;
+    this.userInputData.expectedReturn = 5;
+    this.userInputData.duration = 10;
   }
 }
