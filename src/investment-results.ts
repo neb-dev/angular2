@@ -2,23 +2,47 @@
 // e.g., integrate it into a service or component
 // You may need to tweak it, depending on where and how you use it
 
-export function calculateInvestmentResults() {
-  const annualData = [];
-  let investmentValue = initialInvestment;
+export interface UserInput {
+  initialInvestment: number;
+  annualInvestment: number;
+  expectedReturn: number;
+  duration: number;
+}
 
-  for (let i = 0; i < duration; i++) {
+export interface AnnualData {
+  year: number;
+  interest: number;
+  valueEndOfYear: number;
+  annualInvestment: number;
+  totalInterest: number;
+  totalAmountInvested: number;
+}
+
+export type InvestmentResults = AnnualData[];
+
+export function calculateInvestmentResults(
+  userInput: UserInput
+): InvestmentResults {
+  const annualData = [];
+  let investmentValue = userInput.initialInvestment;
+
+  for (let i = 0; i < userInput.duration; i++) {
     const year = i + 1;
-    const interestEarnedInYear = investmentValue * (expectedReturn / 100);
-    investmentValue += interestEarnedInYear + annualInvestment;
+    const interestEarnedInYear =
+      investmentValue * (userInput.expectedReturn / 100);
+    investmentValue += interestEarnedInYear + userInput.annualInvestment;
     const totalInterest =
-      investmentValue - annualInvestment * year - initialInvestment;
+      investmentValue -
+      userInput.annualInvestment * year -
+      userInput.initialInvestment;
     annualData.push({
       year: year,
       interest: interestEarnedInYear,
       valueEndOfYear: investmentValue,
-      annualInvestment: annualInvestment,
+      annualInvestment: userInput.annualInvestment,
       totalInterest: totalInterest,
-      totalAmountInvested: initialInvestment + annualInvestment * year,
+      totalAmountInvested:
+        userInput.initialInvestment + userInput.annualInvestment * year,
     });
   }
 

@@ -1,12 +1,26 @@
+@if (!results().length) {
+<p class="center">Please enter your investment to see results.</p>
+} @else {
 <table>
   <thead>
-    Investment
+    <tr>
+      <th>Year</th>
+      <th>Investment Value</th>
+      <th>Interest (Year)</th>
+      <th>Total Interest</th>
+      <th>Invested Capital</th>
+    </tr>
   </thead>
   <tbody>
-    @for (investment of investments(); track investment) {
+    @for (result of results(); track result) {
     <tr>
-      <td>{{ investment }}</td>
+      <td>{{ result.year }}</td>
+      <td>{{ result.valueEndOfYear }}</td>
+      <td>{{ result.interest }}</td>
+      <td>{{ result.totalInterest }}</td>
+      <td>{{ result.totalAmountInvested }}</td>
     </tr>
     }
   </tbody>
 </table>
+}

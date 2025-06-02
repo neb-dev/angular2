@@ -3,6 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
 import { InvestmentResultsComponent } from './investment-results/investment-results.component';
+import {
+  calculateInvestmentResults,
+  InvestmentResults,
+  UserInput,
+} from '../investment-results';
 
 @Component({
   selector: 'app-root',
@@ -16,11 +21,10 @@ import { InvestmentResultsComponent } from './investment-results/investment-resu
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  investments: number[] = [];
+  investmentResults: InvestmentResults = [];
 
-  addInvestment(amount: number) {
-    this.investments.push(amount);
-    console.log(amount);
-    console.log(this.investments);
+  handleUserInput(userInput: UserInput) {
+    this.investmentResults = calculateInvestmentResults(userInput);
+    console.log(this.investmentResults);
   }
 }
