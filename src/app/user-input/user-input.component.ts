@@ -1,6 +1,7 @@
-import { Component, output } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UserInput } from './user-input.types';
+import { InvestmentService } from '../services/investment.service';
 
 @Component({
   selector: 'app-user-input',
@@ -15,10 +16,13 @@ export class UserInputComponent {
     expectedReturn: 5,
     duration: 10,
   };
-  userInput = output<UserInput>();
+  // userInput = output<UserInput>();
+
+  private investmentService = inject(InvestmentService);
 
   handleSubmit() {
-    this.userInput.emit(this.userInputData);
+    // this.userInput.emit(this.userInputData);
+    this.investmentService.calculateInvestmentResults(this.userInputData);
     this.resetForm();
   }
 
