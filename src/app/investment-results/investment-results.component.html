@@ -1,5 +1,4 @@
-<!-- @if (!results().length) { -->
-@if (!investmentResults.length) {
+@if(!results().length) {
 <p class="center">Please enter your investment to see results.</p>
 } @else {
 <table>
@@ -13,8 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <!-- @for (result of results(); track result) { -->
-    @for (result of investmentResults; track result) {
+    @for (result of results(); track result) {
     <tr>
       <td>{{ result.year }}</td>
       <td>{{ result.valueEndOfYear | currency }}</td>
